@@ -1,0 +1,4 @@
+apiVersion: v1
+name: echo-server-chart
+version: 1.0.0
+description: Echo server helm chart

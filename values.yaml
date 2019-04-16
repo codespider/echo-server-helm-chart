@@ -1,0 +1,8 @@
+db:
+  fullnameOverride: echo-service-db
+  postgresqlUsername: postgres
+  postgresqlPassword: password
+
+cache:
+  cluster:
+    slaveCount: 1

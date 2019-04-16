@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: utils
+spec:
+    replicas: 1
+    strategy:
+        rollingUpdate:
+            maxSurge: 1
+    selector:
+        matchLabels:
+            app: utils
+    template:
+        metadata:
+            labels:
+                app: utils
+        spec:
+            containers:
+                - name: utils
+                  image: jbergknoff/postgresql-client
+                  imagePullPolicy: IfNotPresent
+                  command:
+                    - "sleep"
+                    - "3000"

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: {{ .Release.Name }}
+spec:
+    replicas: 2
+    strategy:
+        rollingUpdate:
+            maxSurge: 1
+    selector:
+        matchLabels:
+            app: {{ .Release.Name }}
+    template:
+        metadata:
+            labels:
+                app: {{ .Release.Name }}
+        spec:
+            containers:
+                - name: echo-service
+                  image: karthik/echo-server:latest
+                  imagePullPolicy: Never
+                  ports:
+                      - containerPort: 9200
